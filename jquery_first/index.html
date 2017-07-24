@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+	<meta http-equiv="content-style-type" content="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<meta http-equiv="text/javascript" content="text/javascript" />
+  <meta name="description" content="デザイナ向け「はじめてのjQuery」"/>
+  <title>はじめてのjQuery</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="controller.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28378627-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-28378627-4";
+</script>
+</head>
+<body>
+<script type="text/javascript"><!--
+  google_ad_client = "ca-pub-0949192208712550";
+  /* はじめてのjQuery用 */
+  google_ad_slot = "7532882357";
+  google_ad_width = 728;
+  google_ad_height = 90;
+  //-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<div id="body">
+  <div id="slide">
+    <img src="img/jQuery.001.jpg" alt="はじめてのjQuery" />
+  </div>
+  <div id="controller">
+    <input id="home" type="image" src="img/home.png" />
+    <input id="prev" type="image" src="img/prev.png" />
+    <input id="next" type="image" src="img/next.png" />
+    <a id="view_index" href="javascript:void(0)">目次</a>
+    <a id="view_source" href="javascript:void(0)">ソース</a>
+  </div>
+    <div id="index"></div>
+    <div id="source">
+      <div>はじめてのjQuery</div>
+      <div class="heading">なぜjQueryを使うのか</div>
+      <div>デザイナ寄りのJavaScriptライブラリだから</div>
+      <div>他のJavaScriptライブラリはプログラマじゃないと敷居が高い orz...</div>
+      <div>ぶっちゃけ</div>
+      <div>CSSできるならjQueryもできる（ようになるはず）</div>
+      <div>それをおいておいても</div>
+      <div>早い （ソースが軽く軽快）、安い （学習コスト）、うまい （高機能）</div>
+      <div>三拍子揃ってる</div>
+      <div>今より少し知識を補充するだけでいろんなことができるようになります</div>
+      <div>表面的な知識で終わらず</div>
+      <div>ある程度使いこなせるようになるため</div>
+      <div>お作法を覚えましょう</div>
+      <div class="heading">ちょっとjQueryを取ってくる</div>
+      <div>jQueryの本家サイト</div>
+      <div>「J」って言ってるのに Japanじゃないお (／_；)</div>
+      <div>はいはい</div>
+      <div>ダウンロードしたら読み込み準備</div>
+      <div>head要素の中でjQueryを読み込みます</div>
+<div><pre>&lt;head&gt;
+  &lt;title&gt;たいとる&lt;/title&gt;
+  &lt;meta http-equiv="Content-Script-Type" content="text/javascript" /&gt;
+  &lt;script type="text/javascript" src="js/jquery.js"&gt;&lt;/script&gt;
+&lt;/head&gt;</pre></div>
+      <div>CSSの読み込みとほとんど同じですね</div>
+      <div>次は自分で作るjsファイルを読み込みます</div>
+<div><pre>&lt;head&gt;
+  &lt;title&gt;たいとる&lt;/title&gt;
+  &lt;meta http-equiv="Content-Script-Type" content="text/javascript" /&gt;
+  &lt;script type="text/javascript" src="js/jquery.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript" src="js/original.js"&gt;&lt;/script&gt;
+&lt;/head&gt;</pre></div>
+      <div>準備完了</div>
+      <div>これからお作法を学んでいきます</div>
+      <div>すでに(X)HTMLとCSSにて要素、属性、 セレクタ、プロパティが使えているはずなので</div>
+      <div>学ぶことはふたつ</div>
+      <div>魔法の呪文とメソッド</div>
+      <div class="heading">魔法の呪文</div>
+      <div>original.jsという空のファイルを作って、その中に魔法の呪文を唱えます</div>
+      <div>臨</div>
+      <div>兵</div>
+      <div>闘</div>
+      <div>者</div>
+      <div>皆</div>
+      <div>陳</div>
+      <div>裂</div>
+      <div>在</div>
+      <div>前ッ!!</div>
+<div><pre>$(function() {
+
+
+//魔法の呪文が発動しました
+
+
+
+});</pre></div>
+<div><pre>$(function() {
+
+
+//魔法の呪文が発動しました
+//この中にいろんなコードを書いていきます
+
+
+});</pre></div>
+      <div class="heading">押さえるべき基本</div>
+      <div>○○を○○した時○○を○○する</div>
+      <div>jQueryで</div>
+      <div>○○を○○した時○○を○○する</div>
+      <div>を記述するといろんなことができます</div>
+      <div>実際のコードも○○を○○した時○○を○○するが基本になります</div>
+      <div>CSSでこれに近いお作法を使っていますね</div>
+<div><pre>/* CSS */
+a:link {
+  color: black;
+}
+a:hover {
+  color: red;
+}</pre></div>
+<div><pre>/* CSS */
+a:link {
+  color: black;
+}
+a:hover {
+  color: red;
+}</pre>
+aをhoverした時colorにredをセットする (そうでない時はblack)</div>
+      <div>jQueryではこう書きます</div>
+<div><pre>/* jQuery */
+$('a').hover(
+  function() {
+    $(this).css('color', 'red');
+  },
+  function() {
+    $(this).css('color', 'black'); 
+  }
+);</pre>
+aをhoverした時colorにredをセットする (そうでない時はblack)</div>
+      <div>うっ、、、 難しい orz...</div>
+      <div>jQueryが使えれば CSSでできなかったことができるようになるので少しだけがんばりましょう</div>
+      <div>さっきのコードを解読してみましょう</div>
+      <div>○○を○○した時○○を○○するが少し複雑になっただけです</div>
+<div><pre>/* jQuery */
+$('a').hover(
+  function() {
+    $(this).css('color', 'red');
+  },
+  function() {
+    $(this).css('color', 'black');
+  }
+);</pre>
+※黒字の箇所は魔法の呪文です テクマクマヤコンと唱えてください</div>
+<div><pre>/* jQuery */
+aを.hover(
+  function() {
+    $(this).css('color', 'red');
+  },
+  function() {
+    $(this).css('color', 'black');
+  }
+);</pre>
+※黒字の箇所は魔法の呪文です テクマクマヤコンと唱えてください</div>
+<div><pre>/* jQuery */
+aを.hoverした時(
+  function() {
+    $(this).css('color', 'red');
+  },
+  function() {
+    $(this).css('color', 'black');
+  }
+);</pre> 
+※黒字の箇所は魔法の呪文です テクマクマヤコンと唱えてください </div>
+<div><pre>/* jQuery */
+aを.hoverした時(
+  function() {
+    それ(a)の.css('color', 'red');
+  },
+  function() {
+    $(this).css('color', 'black');
+  }
+);</pre>
+※黒字の箇所は魔法の呪文です テクマクマヤコンと唱えてください </div>
+<div><pre>/* jQuery */
+aを.hoverした時(
+  function() {
+    それ(a)の.CSSの('color', 'red');
+  },
+  function() {
+    $(this).css('color', 'black');
+  }
+);</pre>
+※黒字の箇所は魔法の呪文です テクマクマヤコンと唱えてください</div>
+<div><pre>/* jQuery */
+aを.hoverした時(
+  function() {
+    それ(a)の.CSSの(colorに, redをセットする);
+  },
+  function() {
+    $(this).css('color', 'black');
+  }
+);</pre>
+※黒字の箇所は魔法の呪文です テクマクマヤコンと唱えてください</div>
+<div><pre>/* jQuery */
+aを.hoverした時(
+  function() {
+    それ(a)の.CSSの(colorに, redをセットする);
+  }そうでない時
+  function() {
+    $(this).css('color', 'black');
+  }
+);</pre>
+※黒字の箇所は魔法の呪文です テクマクマヤコンと唱えてください</div>
+<div><pre>/* jQuery */
+aを.hoverした時(
+  function() {
+    それ(a)の.CSSの(colorに, redをセットする);
+  }そうでない時
+  function() {
+    それ(a)の. …の ( …に, blackをセットする);
+  }
+);</pre>
+※黒字の箇所は魔法の呪文です テクマクマヤコンと唱えてください</div>
+      <div>これがお作法です</div>
+      <div>応用してみましょう</div>
+<div><pre>/* jQuery */
+$('p').click(
+  function() {
+    $('dl').css('margin-left', '50px');
+  }
+);</pre></div>
+<div><pre>/* jQuery */
+$('p').click(
+  function() {
+    $('dl').css('margin-left', '50px');
+  }
+);</pre>
+pをクリックした時 dlのmargin-leftに 50pxをセットする</div>
+      <div>こんな感じでいくらでも応用がききます</div>
+      <div class="heading">おさらい</div>
+      <div>○○を○○した時○○を○○する</div>
+      <div>おおざっぱにjQueryで表現すると</div>
+<div><pre>/* jQuery */
+$(CSSセレクタ).イベント(function() {
+  $(CSSセレクタ).メソッド;
+});
+/* 無理矢理日本語に当てはめた場合
+○○を.○○した時(function() {
+  ○○を.○○する;
+}); */</pre>
+大体こんな感じで記述できるので</div>
+  <div>メソッドを押さえるだけである程度のことはできる、慣れの問題です</div>
+      <div>デザイナは、あと一歩で手が届く技術</div>
+      <div class="heading">リファレンスを使おう</div>
+      <div>セレクタ、イベント、メソッドで jQueryが記述できるとわかったら</div>
+      <div>リファレンスを使いながら必要な情報を調達して動かしてみましょう</div>
+      <div>jQuery日本語リファレンス</div>
+      <div>jQuery日本語リファレンス<br />
+      <a href="http://semooh.jp/jquery/">http://semooh.jp/jquery/</a></div>
+      <div>このサイトを使いつつ</div>
+      <div>必要なセレクタと必要なイベントと必要なメソッドの情報調達をします</div>
+      <div class="heading">必要なセレクタを探す</div>
+      <div>Selectors</div>
+      <div>セレクタはSelectorsという項目で情報調達できます</div>
+      <div>覚えるべきセレクタ<br />
+      $('#id')<br />
+      $('.class')<br />
+      $('Element')<br />
+      $('Element  element')<br />
+      基本的にCSSとほぼ同じ書き方</div>
+      <div>特に文書内一意のid属性は非常に使いやすい</div>
+      <div>プログラマもよく使う値なので相談しながら設定しましょう</div>
+      <div class="heading">必要なイベントを探す</div>
+      <div>Events</div>
+      <div>イベントはEventsという項目で情報調達できます</div>
+      <div>覚えるべきイベント<br />
+      $('セレクタ').hover(over, out)<br />
+      $('セレクタ').toggle(fn1,fn2~)<br />
+      $('セレクタ').click()<br />
+      $('セレクタ').blur()<br />
+      $('セレクタ').change()<br />
+      $('セレクタ').focus()</div>
+      <div>イベントは単語そのままなのですぐ覚えられます</div>
+      <div class="heading">必要なメソッドを探す</div>
+      <div>Attributes、Manipulation、CSS、Effectsあたり</div>
+      <div>Attributes
+      属性に関するメソッド
+      Manipulation
+      要素に関するメソッド
+      CSS
+      CSSに関するメソッド
+      Effects
+      エフェクト効果に関するメソッド</div>
+      <div>メソッドはケースバイケースですがHTML、CSS、エフェクトは操れるようになるといいと思います</div>
+      <div>最後に</div>
+      <div>jQueryを卒業して</div>
+      <div>DOMを直接操れるようになると</div>
+      <div>いつの日か連邦のMSにも勝てる日がくるさ</div>
+      <div>○E潰そう的な意味で</div>
+      <div>それでは今回はこれにて</div>
+      <div>さようなら</div>
+    </div>
+  <dl>
+    <dt>作った動機とか目的とか</dt>
+    <dd><a href="http://d.hatena.ne.jp/jdg/20081127/1227747020">http://d.hatena.ne.jp/jdg/20081127/1227747020</a></dd>
+    <dt>作った人</dt>
+    <dd><a href="../">その他のコンテンツ等のリンク集</a></dd>
+  </dl>
+</div>
+<div style="margin: 20px 0;">
+<script type="text/javascript"><!--
+  google_ad_client = "ca-pub-0949192208712550";
+  /* はじめてのjQuery（下部） */
+  google_ad_slot = "0958391287";
+  google_ad_width = 728;
+  google_ad_height = 90;
+  //-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</body>
+</html>

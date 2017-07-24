@@ -1,0 +1,33 @@
+body {
+	font-size: 100%;
+}
+
+#nav p {
+	margin: 1em 0 1em 1em;
+	padding: 0;
+}
+
+#index li {
+	line-height: 150%;
+}
+#index p {
+	margin-left: 1em;
+}
+.hidden {
+	display: none;
+}
+
+.copypast:hover {
+	cursor: pointer;
+}
+#modalwindow p {
+	margin-left: 2em;
+}
+#modalwindow h1 {
+	font-size: 120%;
+	margin-left: 2em;
+}
+
+#validator p {
+	margin: 1em 0 0 1em;
+}
